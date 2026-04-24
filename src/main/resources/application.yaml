@@ -2,13 +2,22 @@ spring:
   application:
     name: life-tracker
   datasource:
-    url: jdbc:mysql://localhost:3306/life-tracker?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/life-tracker?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&useUnicode=true&allowPublicKeyRetrieval=true
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   devtools:
     restart:
       enabled: false
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: Asia/Shanghai
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
